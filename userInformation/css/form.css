@@ -1,0 +1,251 @@
+/* 入力フォームcss */
+
+input[type="text"],input[type="num"] {
+  font-size: 18px;
+}
+
+#input,textarea{
+  font-size: 18px;
+}
+
+
+input[type="password"] {
+    width: 480px;
+    height:40px;
+    border:none;
+    border: 1px solid #dbdbdb;
+    border-color: #dbdbdb; 
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="password"]:focus{
+    outline: 0;
+    border-color: #4dc9ff;
+}
+
+  .eye{
+    position: relative;
+    display: inline-block;
+  }
+
+
+#buttonEye1,#buttonEye2{
+  position:absolute;
+  width:13px;
+  height: 13px;
+  right:10px;
+  top: 13px;
+  cursor: pointer;
+  color:rgb(153,153,153);
+}
+
+
+.wrapper{
+  margin-top:70px;
+}
+
+
+.lesson{
+  color:#fff;
+  opacity: .9;
+  font-weight:bold;
+  background-color: #2ad947;
+background-image: radial-gradient(#444cf7 0.5px, #2ad947 0.5px);
+background-size: 10px 10px;
+width: 70%;
+border:1px solid transparent;
+border-radius:8px;
+margin: 0 auto;
+position: relative;
+border-bottom:none;
+}
+
+.attention{
+  margin-bottom: 30px;
+}
+
+.sankaku{
+  content: ''; 
+  position:absolute;
+  display:inline-block;
+  border-style: solid;
+  border-width: 10px 0 10px 12px;
+  border-color: transparent transparent transparent #333;
+   position: absolute; 
+  top: 20%;
+  left: 26px;
+ 
+}
+
+.container{
+  font-size:20px;
+}
+
+/* ページデザインcss */
+*{
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color: #363636;
+}
+
+.btn{
+  color: #fff;
+  background-color: #dc3545;
+  border-radius: 5px;
+  font-size: .8rem;
+  padding: 4px;
+}
+
+.wrapper {
+text-align: center;
+padding-top: 70px;
+}
+
+input[type="text"] {
+  width: 480px;
+  height:40px;
+  border:none;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+input[type="text"]:focus{
+  outline: 0;
+  border-color: #4dc9ff;
+}
+
+
+
+input[type="password"] {
+  width: 480px;
+  height:40px;
+  border:none;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
+input[type="password"]:focus{
+  outline: 0;
+  border-color: #4dc9ff;
+}
+
+
+
+#textarea:focus{
+  outline: 0;
+  border-color: #4dc9ff;
+}
+#num:focus{
+  outline: 0;
+  border-color: #4dc9ff;
+}
+
+
+
+.container{
+  width: 480px;
+  margin: 0 auto;
+}
+
+.start{
+  text-align: left;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.font2{
+  font-weight: 700;
+ padding-left: 10px;
+}
+
+input[type="submit"]{
+  background-color: #00d1b2;
+  border-color: transparent;
+  color: #fff;
+  padding:7px 15px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+.btn {
+  font-size: 1rem;
+  padding: 6px 12px;
+}
+
+.attention{
+  font-size: 0.9rem;
+  margin: 20px auto 0;
+}
+
+.create a{
+  color:#fff;
+  font-weight: bold;
+  display: block;
+}
+
+.login1 a{
+  color:#303030;
+  font-weight: bold;
+  display: block;
+}
+
+.btn a{
+  display: block;
+}
+
+.create{
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: #ffaf26;
+}
+
+.login1{
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: #ccc;
+}
+
+.sankaku{
+  position:absolute;
+  display:inline-block;
+  border-style: solid;
+  border-width: 10px 0 10px 12px;
+  border-color: transparent transparent transparent #333;
+  top: 40%;
+  left: 15%;
+  margin-top: -6px;
+  }
+
+  .caution,.cau,.textlen,.userlen,.hankaku1,.hankaku2,.out{
+    color:red;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-left: 15px;
+  }
+
+
+  .question,.answer{
+    font-weight: normal;
+  }
+
+  input:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+#decrease,#allDecrease{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.dec {
+  display: flex;
+  justify-content: space-around;
+}
+
+.delete{
+  text-align: left;
+}

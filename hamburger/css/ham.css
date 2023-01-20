@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+i{
+    font-size: 40px;
+    color: #393737;
+}
+
+.right{
+    cursor: pointer;
+}
+
+#out{
+    background: #d7d7da;
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    box-shadow: none;
+    padding: 4px 8px;
+    font-size:16px;
+}
+
+#out,#out option{
+    font-weight: bold;
+    color: #393737;
+    cursor: pointer;
+}
+
+img{
+    cursor: pointer;
+}
+
