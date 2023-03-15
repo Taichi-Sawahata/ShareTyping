@@ -1,0 +1,21 @@
+.
+├── ShareTyping
+│   ├── hamburger
+│   │   ├── css
+│   │   ├── js
+│   │   └── php
+│   ├── image(user投稿)
+│   ├── img
+│   ├── keyboard
+│   │   ├── css
+│   │   ├── js
+│   │   └── php
+│   ├── topPage
+│   │   ├── css
+│   │   ├── js
+│   │   └── php
+│   └── userInformation
+│       ├── css
+│       ├── js
+│       └── php
+└── index.php

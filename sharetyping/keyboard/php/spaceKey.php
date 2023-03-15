@@ -24,8 +24,24 @@
     <link rel="stylesheet" href="../../topPage/css/Top.css">
     <link rel="stylesheet" href="../../topPage/css/entire.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background: rgb(220, 219, 219);
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
+<?php if(!empty($_SESSION['user_name'])){
+echo '<header>';
+  require('../../hamburger/logHamburger.php'); 
+echo '</header>';
+}else{
+    echo '<header>';
+    require('../../hamburger/keyboardHam.php');
+    echo '</header>';
+} ?>
+
 <div class="container">
      <h2><span class="naiyou"><?Php echo $row['title']?></span></h2> 
      <p>作成ユーザー:<span class="naiyou"><?php echo $row['user_name']?></span></p> 
@@ -38,14 +54,7 @@
 
 </div>
 
-<div class="low">
-<?php if(!empty($_SESSION['user_name'])){
-    require('../../topPage/php/logTop.php');
-}else{
-    require('../../topPage/php/notLogTop.php');
-} 
-    ?>
-</div>
+
   
 <script src="../js/close.js"></script>
 <script src="../js/space.js"></script>

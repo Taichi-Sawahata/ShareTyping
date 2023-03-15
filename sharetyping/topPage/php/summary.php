@@ -7,6 +7,8 @@ $json = array();
 $content = array();
 $people = array();
 $datepost = array();
+$file = array();
+
 try{
     $db = new PDO('mysql:host=localhost;dbname=wp459266_infomation;charset=utf8','wp459266_wp1','gumi7070');
     $stmt = $db->prepare('SELECT count(*) FROM quiz');
@@ -16,6 +18,17 @@ try{
    $stmt = $db->prepare('SELECT * FROM quiz');
    $stmt->execute();
    $row = $stmt->fetchAll();
+
+
+   $stmt = $db->prepare('SELECT * FROM images');
+   $stmt->execute();
+   $images = $stmt->fetchAll();
+   foreach($images as $img){
+   //  $file.push($img['file_path'].$img['file_name']);
+   array_push($file,$img['file_path'].$img['file_name']);
+   }
+
+
   for($i=0;$i<=$num-1;$i++){
 array_push($json,$row[$i]['title']);
 array_push($content,$row[$i]['content']);
@@ -27,6 +40,8 @@ array_push($datepost,$row[$i]['datepost']);
   $contents = json_encode($content);
   $peoples = json_encode($people);
   $dateposts = json_encode($datepost);
+  $files = json_encode($file);
+
    
 }catch(PDOException $e){
     $e->getMessage();
@@ -50,29 +65,42 @@ if(isset($_POST['game'])){
     <link rel="stylesheet" href="../css/entire.css">
     <link rel="stylesheet" href="../css/Top.css">
     <style>
-
-      body{
-        position:relative;
-      }
-
       h3{
         text-align: center;
         width: 725px;
       }
 
-      .row:first-child{
-        margin: 0;
-        padding-top:30px;
-      }
 
+      @media screen and (max-width: 1375px){
+  .sankaku{
+    border:none;
+  }
 
-      .footer{
-        position:absolute;
-        bottom:0;
-        left:50%;
-        transform: translateX(-50%);
-        margin: 0;
-      }
+} 
+  
+#prev,#next,#initialize,.li{
+  cursor:pointer;
+
+}
+
+.li:active{
+  background: #AFDFE4;
+  opacity: .9;
+}
+
+,#initialize:active{
+  opacity: .8;
+}
+
+.card-list{
+  margin-top: 0;
+  padding-top:0;
+}
+
+.row:first-child{
+  margin-top: 0;
+  padding-top:30px;
+}
 
     </style>
 </head>
@@ -80,12 +108,26 @@ if(isset($_POST['game'])){
 <header><?php  require('../../hamburger/logHamburger.php') ?></header>
 <h3 class="summary "><span class="sankaku"></span>
           シェアタイピング一覧</h3>   
-              <div class="summary-list" id="card-list">
-                  
-         </div>
-            <div class="top">
+      <!--ページネーション-->                      
+
+    <ul class="card-list" id="card-list"></ul>
+
+    
+    <div class="page-list">
+    <span id="prev"><<</span>
+    <ul class="pagination" id="pagination">
+      <li class="li" id="li1">1</li>
+      <li class="li" id="li2">2</li>
+      <li class="li" id="li3">3</li>
+      <li class="li" id="li4">...</li>
+      <li class="li" id="li5">5</li>
+    </ul>
+    <span id="next">>></span>
+    <span id="initialize">最初のページに戻る</span>
+    </div>
+            <!-- <div class="top">
         <a href="logTop.php">トップへ戻る</a>
-      </div> 
+      </div>  -->
       <div class="footer">Copyright &copy; ShareTyping</div>
 
       <script>
@@ -93,6 +135,7 @@ if(isset($_POST['game'])){
         const content = JSON.parse('<?php echo $contents ?>');
          const people = JSON.parse('<?php echo $peoples ?>');
          const datepost = JSON.parse('<?php echo $dateposts ?>');
+         const file = JSON.parse('<?php echo $files ?>');
       </script>
 
 <script src="../js/play.js"></script>

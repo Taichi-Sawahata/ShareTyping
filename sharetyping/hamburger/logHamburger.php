@@ -26,14 +26,16 @@ if(empty($_SESSION['user_name'])){
         <div class="header">
             <div class="left">
             <a href="../../topPage/php/logTop.php"><img src="../../img/logo.png" alt="" id="img"></a>
-                <div class="anker"><a id="summary" href="../../topPage/php/summary.php">レッスン一覧</a></div>
-                <div class="anker"><a href="#">ヘルプ</a></div>
+                <div class="anker"><a href="#">➡　遊び方</a></div>
+                <p class="text">※レッスンPC専用です </p> 
             </div>
             <div class="right">
+            <div class="btn login">
+                        <a href="../../userInformation/php/quizCreate.php">
+                        ゲームを作成</a></div>
             <div class="name">
                 <form action="" method="post" id="post">
            <select name="out" id="out">
-             
             <option value="<?php echo $_SESSION['user_name']?>">
            <?php echo $_SESSION['user_name']?>
         </option>

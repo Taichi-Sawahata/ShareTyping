@@ -16,8 +16,23 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <link rel="stylesheet" href="../../topPage/css/Top.css">
     <link rel="stylesheet" href="../../topPage/css/entire.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <style>
+        body{
+            background: rgb(220, 219, 219);
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
+<?php if(!empty($_SESSION['user_name'])){
+echo '<header>';
+  require('../../hamburger/logHamburger.php'); 
+echo '</header>';
+}else{
+    echo '<header>';
+    require('../../hamburger/keyboardHam.php');
+    echo '</header>';
+} ?>
 
 <div class="container">
 
@@ -26,13 +41,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 </div>
 </div>
 
-<div class="low">
-<?php if(!empty($_SESSION['user_name'])){
-    require('../../topPage/php/logTop.php');
-}else{
-    require('../../topPage/php/notLogTop.php');
-} ?>
-</div>
 
 <form action="" method="post" id="go">
     <input type="hidden" name="post">

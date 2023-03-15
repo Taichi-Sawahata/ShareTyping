@@ -1,112 +1,365 @@
- 'uses strict';
-
-     
-     let container = document.getElementById('card-list');
-     
-      let images = [['../../img/cardimg/christmas-tree-g8fad31f1e_1280.jpg'],
-     
-     ['../../img/cardimg/city-ge897208ff_1280.jpg'], ['../../img/cardimg/ferris-wheel-g417b7539d_1280.jpg'],
-     
-     ['../../img/cardimg/harvest-g7122a39ec_1280.jpg'],['../../img/cardimg/hd-wallpaper-g81054e8b6_1280.jpg'],
-     
-     ['../../img/cardimg/house-gefaddc750_1280.jpg'],
-     
-     ['../../img/cardimg/laptop-g435964f97_1280.jpg'],
-     
-     ['../../img/cardimg/little-panda-g4371da3a2_1280.jpg'],
-     
-      ['../../img/cardimg/tel-aviv-gff7958b54_1280.jpg'],['../../img/cardimg/woman-g8d0263664_1280.jpg']
-     
-     ];
-
-     //行
-     let row =document.createElement('row');
-     row.classList.add('row');
+'uses strict';
 
 
-  for(let i=0;i<json.length;i++){
-      let imageNo = Math.floor(Math.random() * images.length);
-   
-      //カード
-      let card = document.createElement('div');
-      card.classList.add('card');
+let container = document.getElementById('card-list');
 
-     //カード画像、ランダムで出力。ユーザが好きな画像を登録できるようにしたい
-      let img = document.createElement('img');
-      let head = document.createElement('div');
-      head.classList.add('head');
-      img.src = images[imageNo];
-    //   images.splice(imageNo,1);
-      head.appendChild(img);
-      
+let array = [];
+let three_arrarys = [];
 
-      
-      //カードタイトル
-       let cardTitle = document.createElement('div');
-       cardTitle.textContent = json[i];
-       cardTitle.classList.add('card-title');
-
-       //カード概要
-       let cardText = document.createElement('div');
-           cardText.classList.add('card-text');
-           cardText.textContent = content[i];
-
-     
-       //カードが投稿された日時と作成ユーザ  
-       let user = document.createElement('span');
-       user.textContent = people[i];
-       user.classList.add('user');
-       let datetime = document.createElement('span');
-       datetime.textContent = datepost[i];
-       let foot = document.createElement('div');
+let three_arrary = [];
+let zero = 0;
+let card;
+//行
+let row =document.createElement('div');
+row.classList.add('row');
 
 
+for(let i=0;i<json.length;i++){
 
-       foot.appendChild(cardTitle);
-       foot.appendChild(cardText);
-       foot.appendChild(user);
-       foot.appendChild(datetime);
-       foot.classList.add('foot');
-       
+ //カード
+ let card = document.createElement('div');
+ card.classList.add('card');
 
-              
-        //フォーム作成
-       let form = document.createElement('form');
-       form.method = 'post';
-       form.id = 'start';
-       let input = document.createElement('input');
-       input.type = "hidden";
-       input.value = json[i];
-       input.name = 'game';
-       input.classList.add('btn');
-       form.appendChild(input);
-
-    
-       //カードに挿入
-       card.appendChild(head);
-       card.appendChild(foot);
-       card.appendChild(form);
-
-      
-      row.appendChild(card);
-
-
-      //カード四つで改行
-      if(row.childElementCount === 5){
-           row =document.createElement('row');
-          row.classList.add('row');
-          console.log(row.childElementCount);
-      }
+//カード画像、ランダムで出力。ユーザが好きな画像を登録できるようにしたい
+ let img = document.createElement('img');
+ let head = document.createElement('div');
+ head.classList.add('head');
+ img.setAttribute('src',file[i]);
+//   images.splice(imageNo,1);
+ head.appendChild(img);
+ 
 
  
- 
-      container.appendChild(row);
+ //カードタイトル
+  let cardTitle = document.createElement('div');
+  cardTitle.textContent = json[i];
+
+  cardTitle.classList.add('card-title');
+
+  //カード概要
+  let cardText = document.createElement('div');
+      cardText.classList.add('card-text');
+      cardText.textContent = content[i];
 
 
-      card.addEventListener('click',(e)=>{
-                form.submit();
-            
-      })
-     }
+  //カードが投稿された日時と作成ユーザ  
+  let user = document.createElement('span');
+  user.textContent = people[i];
+  user.classList.add('user');
+  let datetime = document.createElement('span');
+  datetime.textContent = datepost[i];
+  datetime.classList.add('datetime');
+  let foot = document.createElement('div');
+
+
+  foot.appendChild(user);
+  foot.appendChild(cardTitle);
+  foot.appendChild(cardText);
+  foot.appendChild(datetime);
+  foot.classList.add('foot');
   
 
+         
+   //フォーム作成
+  let form = document.createElement('form');
+  form.method = 'post';
+  form.id = 'start';
+  let input = document.createElement('input');
+  input.type = "hidden";
+  input.value = json[i];
+  input.name = 'game';
+  input.classList.add('btn');
+  form.appendChild(input);
+
+
+  //カードに挿入
+  card.appendChild(head);
+  card.appendChild(foot);
+  card.appendChild(form);
+
+  row.appendChild(card);
+
+ 
+ //カード5つで改行
+ if(row.childElementCount === 4){
+    three_arrary.push(row);
+   
+    if(container.childElementCount < 3){
+        container.appendChild(row);
+    }
+      row =document.createElement('div');
+     row.classList.add('row');
+  
+ }
+
+ if(three_arrary.length === 3){
+    let item =  three_arrary.splice(0,3);
+      three_arrarys.push(item);
+  }
+
+
+ if(row.childElementCount < 5 && json[i] === json[json.length-1]){
+    three_arrary.push(row);
+    let item =  three_arrary.splice(0,3);
+    three_arrarys.push(item);
+ }
+
+ card.addEventListener('click',(e)=>{
+           form.submit();
+       
+ })
+}
+
+
+let current_page = 0;
+let kazu = 0;
+
+// function math(){
+
+
+
+// }
+
+// math();
+
+// let count = 1;
+// three_arrarys.forEach((e)=>{
+//     let pagination = document.getElementById('pagination');
+//    let li = document.createElement('li');
+//    li.classList.add('li');
+
+//  if(three_arrarys.length === count){
+//      li.innerHTML = count;
+// }else if(count > 3 ){
+//     li.innerHTML = '...';
+// }else{
+//     li.innerHTML = count;
+// }
+//  pagination.appendChild(li);
+    
+//  count++;
+ 
+// })
+ page();
+
+    //  let list = document.querySelectorAll('.li');
+    let list = document.querySelectorAll('li');
+    let count = 1;
+
+
+    // list.forEach((el) =>{
+    //     el.innerHTML = count;
+    //   count++;
+    //   })
+
+let li1 = document.getElementById('li1');
+let li2 = document.getElementById('li2'); 
+let li3 = document.getElementById('li3'); 
+let li4 = document.getElementById('li4');
+let li5 = document.getElementById('li5');
+
+li1.addEventListener('click',()=>{
+    li1.innerHTML = li1.innerHTML;
+    li2.innerHTML = Number(li1.innerHTML) + 1;
+    li3.innerHTML = Number(li2.innerHTML) + 1;
+    li5.innerHTML = three_arrarys.length;
+
+ 
+  
+  if(li3.innerHTML > three_arrarys.length){
+    li3.innerHTML = '...';
+  }
+
+  if(li2.innerHTML > three_arrarys.length ){
+    li2.innerHTML = '...';
+  }
+
+   current_page = li1.innerHTML - 1;
+   console.log(current_page);
+   page();
+})
+
+li2.addEventListener('click',()=>{
+
+    if(li2.innerHTML === '...'){
+        return;
+    }
+
+    li1.innerHTML = li2.innerHTML;
+    li2.innerHTML = Number(li1.innerHTML) + 1;
+    li3.innerHTML = Number(li2.innerHTML) + 1;
+    li5.innerHTML = three_arrarys.length;
+
+
+    if(li2.innerHTML > three_arrarys.length){
+        li2.innerHTML = '...';
+      }
+
+  
+  if(li3.innerHTML > three_arrarys.length){
+    li3.innerHTML = '...';
+  }
+
+   current_page = li1.innerHTML - 1;
+    console.log(current_page);
+   page();
+})
+    
+li3.addEventListener('click',()=>{
+
+    if(li3.innerHTML === '...'){
+        return;
+    }
+ 
+    li1.innerHTML = li3.innerHTML;
+    li2.innerHTML = Number(li1.innerHTML) + 1;
+    li3.innerHTML = Number(li2.innerHTML) + 1;
+    li5.innerHTML = three_arrarys.length;
+  
+   
+
+    if(li2.innerHTML > three_arrarys.length){
+        li2.innerHTML = '...';
+      }
+
+
+      if(li3.innerHTML > three_arrarys.length){
+        li3.innerHTML = '...';
+      }
+ 
+
+    current_page = li1.innerHTML - 1;
+    //  console.log(current_page);
+    page();
+})
+
+
+
+li5.addEventListener('click',()=>{
+    li1.innerHTML = li5.innerHTML;
+    li2.innerHTML = '...';
+    li3.innerHTML = '...';
+    li5.innerHTML = three_arrarys.length;
+    current_page = li1.innerHTML - 1;
+    //  console.log(current_page);
+    page();
+})
+     
+
+ 
+
+   
+
+
+const prev = document.getElementById('prev');
+const next = document.getElementById('next');
+
+prev.addEventListener('click',()=>{
+    if(Number(li1.innerHTML) -1 > 0){
+        li1.innerHTML = Number(li1.innerHTML) -1;
+        li2.innerHTML = Number(li1.innerHTML) + 1;
+        li3.innerHTML = Number(li2.innerHTML) + 1;
+         li5.innerHTML = three_arrarys.length;
+    }
+
+      
+      if(li3.innerHTML > three_arrarys.length){
+        li3.innerHTML = '...';
+      }
+    
+      if(li2.innerHTML > three_arrarys.length ){
+        li2.innerHTML = '...';
+      }
+
+
+
+
+    if(current_page <= 0){
+        current_page = 0;
+    }else{
+        current_page--;
+    }
+
+  page();
+     
+
+});
+
+
+
+let last = 0;
+
+
+next.addEventListener('click',()=>{
+    last = Number(li1.innerHTML);
+ if(last === three_arrarys.length){
+    return;
+ }
+        li1.innerHTML = Number(li1.innerHTML) +1;
+        li2.innerHTML = Number(li1.innerHTML) + 1;
+        li3.innerHTML = Number(li2.innerHTML) + 1;
+         li5.innerHTML = three_arrarys.length;
+
+  
+  if(li3.innerHTML > three_arrarys.length){
+    li3.innerHTML = '...';
+  }
+
+  if(li2.innerHTML > three_arrarys.length ){
+    li2.innerHTML = '...';
+  }
+
+
+    if(three_arrarys.length < current_page){
+        current_page = three_arrarys.length;
+    }else{
+        current_page++;
+    }
+
+    page();
+
+    })
+
+
+ function page(){
+    let a = document.querySelectorAll('.row');
+    a.forEach((e)=>{
+       e.remove();
+    })
+   
+    
+
+      let els = three_arrarys[current_page];
+    //   console.log(els);
+      els.forEach((e) =>{
+          let row = document.createElement('div');
+          row.classList.add('row');
+          row.innerHTML = e.innerHTML;
+          container.appendChild(row);
+        
+         let row_child = row.childNodes;
+     row_child.forEach((el)=>{
+
+         el.addEventListener('click',()=>{
+          el.children[2].submit();
+         })
+     })
+    
+      })
+
+    //   console.log(container);
+ }
+
+
+
+//初期化
+let initialize = document.getElementById('initialize');
+initialize.addEventListener('click',()=>{
+    li1.innerHTML = 1;
+    li2.innerHTML = 2;
+    li3.innerHTML = 3;
+    li4.innerHTML = '...';
+    li5.innerHTML = three_arrarys.length;
+    current_page = 0;
+    page();
+})

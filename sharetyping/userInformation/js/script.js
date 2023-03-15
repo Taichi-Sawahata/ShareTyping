@@ -27,32 +27,32 @@ numbers.addEventListener('click',(e)=>{
     //  if(dele.length >0){
     //     console.log(v);
     //  }
-
     for(let i=0;i<=num.value-1;i++){
-        let increase = document.querySelector('.increase');
-        // for(let i=0;i<qas.length;i++){
-            let division = document.createElement('div');
-            let division2 = document.createElement('div');
-             let question = document.createElement('input');
-             question.type = 'text';
-             question.name = 'question'+ i;
-             question.classList.add('question');
-             let answer = document.createElement('input');
-             answer.type = 'text';
-             answer.name = 'answer' + i;
-             answer.classList.add('answer');
-            division.appendChild(question);
-            division2.appendChild(answer);
-            division.classList.add('delete');
-            division2.classList.add('delete');
-            increase.appendChild(division);
-            increase.appendChild(division2);
-            division.insertAdjacentHTML('afterbegin','問題'+Number(v+i+1));
-            division2.insertAdjacentHTML('afterbegin','答え'+Number(v+i+1));
-        }
-        v += Number(num.value);
-    
-    });
+      let increase = document.querySelector('.increase');
+      // for(let i=0;i<qas.length;i++){
+          let division = document.createElement('div');
+          let division2 = document.createElement('div');
+           let question = document.createElement('input');
+           question.type = 'text';
+           question.name = 'question'+ i;
+           question.classList.add('question');
+           let answer = document.createElement('input');
+           answer.type = 'text';
+           answer.name = 'answer' + i;
+           answer.classList.add('answer');
+          division.appendChild(question);
+          division2.appendChild(answer);
+          division.classList.add('delete');
+          division2.classList.add('delete');
+          increase.appendChild(division);
+          increase.appendChild(division2);
+          division.insertAdjacentHTML('afterbegin','問題'+Number(v+i+1));
+          division2.insertAdjacentHTML('afterbegin','答え'+Number(v+i+1));
+      }
+      v += Number(num.value);
+  
+  });
+
 
 
     function cancel(event){
@@ -186,11 +186,6 @@ numbers.addEventListener('click',(e)=>{
 })
 
 
-
-
-quiz.addEventListener('click',() =>{
-    footer.remove();
-})
 
 
 

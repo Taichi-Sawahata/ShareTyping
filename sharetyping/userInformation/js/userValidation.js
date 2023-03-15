@@ -140,7 +140,7 @@ pass2.addEventListener('change',()=>{
                 cau.innerHTML = "";
             }
         
-            comfirming.insertAdjacentHTML('afterend','<span class="cau">※パスワードが一致しません</span>')
+            comfirming.insertAdjacentHTML('afterend','<span class="cau">※パスワードが一致しません</span>');
             pass2.style.border = '1px solid red';  
         }
     
@@ -151,10 +151,4 @@ pass2.addEventListener('change',()=>{
         }
     }
     });
-
-
-
-
-
-
 

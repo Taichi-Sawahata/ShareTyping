@@ -70,10 +70,23 @@ header('Location:scoreKey.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
     <link rel="icon" href="../../img/favicon.png" id="favicon">
-  </head>
+    <style>
+        body{
+            background: rgb(220, 219, 219);
+            z-index: 1;
+        }
+    </style>
+</head>
 <body>
- 
- 
+<?php if(!empty($_SESSION['user_name'])){
+echo '<header>';
+  require('../../hamburger/logHamburger.php'); 
+echo '</header>';
+}else{
+    echo '<header>';
+    require('../../hamburger/keyboardHam.php');
+    echo '</header>';
+} ?>
 <div class="container" id="container">
 <div id="header">
   <p id="time">0</p>
@@ -164,13 +177,7 @@ header('Location:scoreKey.php');
         <input type="hidden" name="level">
     </form>
         </form>
-        <div class="low">
-        <?php if(!empty($_SESSION['user_name'])){
-    require('../../topPage/php/logTop.php');
-}else{
-    require('../../topPage/php/notLogTop.php');
-} ?>
-</div>
+ 
         <script>
           let obj = JSON.parse('<?php echo $jsonArray?>');
         </script>

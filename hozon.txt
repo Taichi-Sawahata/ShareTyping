@@ -1,0 +1,28 @@
+        <h3><span class="sankaku"></span>
+          楽しくタイピングができる「シェアタイピング」</h3>
+          <div class="side">
+                <div class="back">
+                  <div class="image">
+                    <div class="kakomi">
+                    <div class="mainText">
+                          <h4>クイズ形式で練習できる</h4>
+                          <h1>タイピングゲーム</h1>
+                        <div class="df">
+                          <p class="explain">自分が勉強したいテーマを作成でき、問題形式のタイピングで遊べる<br>
+                         <span>
+                         ShareTypingの道を進もう
+                    タイピング0から最短距離を歩んで
+                      マスターしよう
+                         </span> 
+                        </p>
+                          <div class="key"><img src="sharetyping/img/key.png" alt="" id="key"></div>
+                        </div>
+                    </div>
+                        <div class="mainBtn">
+                                      
+         
+                    </div>
+                    </div>
+
+
+                  <h3 class="secondh3"><span class="sankaku"></span>シェアタイピング一覧</h3>

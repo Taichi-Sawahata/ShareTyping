@@ -1,4 +1,4 @@
-/* 入力フォームcss */
+入力フォームcss
 
 input[type="text"],input[type="num"] {
   font-size: 18px;
@@ -16,7 +16,6 @@ input[type="password"] {
     border: 1px solid #dbdbdb;
     border-color: #dbdbdb; 
     border-radius: 5px;
-    margin-bottom: 10px;
 }
 
 input[type="password"]:focus{
@@ -41,24 +40,21 @@ input[type="password"]:focus{
 }
 
 
-.wrapper{
-  margin-top:70px;
-}
 
 
 .lesson{
   color:#fff;
-  opacity: .9;
   font-weight:bold;
-  background-color: #2ad947;
-background-image: radial-gradient(#444cf7 0.5px, #2ad947 0.5px);
+  /* background-image: radial-gradient(#444cf7 0.5px, #e8986c 0.5px); */
+  background-color: hsl(220, 84%, 66%);
+  /* border: 1px dotted #be8331; */
 background-size: 10px 10px;
-width: 70%;
-border:1px solid transparent;
-border-radius:8px;
-margin: 0 auto;
+width: 480px;
+/* border:1px solid transparent; */
+border-radius:5px;
+margin: 50px auto 40px;
 position: relative;
-border-bottom:none;
+/* border-bottom:none; */
 }
 
 .attention{
@@ -90,7 +86,6 @@ border-bottom:none;
 
 .btn{
   color: #fff;
-  background-color: #dc3545;
   border-radius: 5px;
   font-size: .8rem;
   padding: 4px;
@@ -107,7 +102,8 @@ input[type="text"] {
   border:none;
   border: 1px solid #dbdbdb;
   border-radius: 5px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
+  font-size: 18px;
 }
 
 input[type="text"]:focus{
@@ -122,8 +118,7 @@ input[type="password"] {
   height:40px;
   border:none;
   border: 1px solid #dbdbdb;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  border-radius: 5px; 
 }
 
 
@@ -158,18 +153,38 @@ input[type="password"]:focus{
 
 .font2{
   font-weight: 700;
- padding-left: 10px;
+ padding-right: 50px;
+padding-left: 10px;
+margin-right: 290px;
+font-size:16px;
 }
 
-input[type="submit"]{
-  background-color: #00d1b2;
-  border-color: transparent;
+input[type="submit"],#mailSub{
+margin-top: 40px;
+  background-color: hsl(220, 84%, 66%);
+    border-color: transparent;
   color: #fff;
   padding:7px 15px;
   font-size: 1rem;
   font-weight: 700;
   border-radius: 5px;
+  cursor: pointer;
 }
+
+
+#mailSub{
+  width: 75px;
+  padding:9px 8px;
+  margin: 40px auto 0;
+}
+
+input[type="submit"]:hover,#mailSub:hover{
+  text-decoration: underline;
+  opacity: .9;
+  cursor: pointer;
+}
+
+
 
 .btn {
   font-size: 1rem;
@@ -187,12 +202,6 @@ input[type="submit"]{
   display: block;
 }
 
-.login1 a{
-  color:#303030;
-  font-weight: bold;
-  display: block;
-}
-
 .btn a{
   display: block;
 }
@@ -200,14 +209,8 @@ input[type="submit"]{
 .create{
   border: 1px solid transparent;
   border-radius: 5px;
-  background-color: #ffaf26;
 }
 
-.login1{
-  border: 1px solid transparent;
-  border-radius: 5px;
-  background-color: #ccc;
-}
 
 .sankaku{
   position:absolute;
@@ -220,11 +223,28 @@ input[type="submit"]{
   margin-top: -6px;
   }
 
-  .caution,.cau,.textlen,.userlen,.hankaku1,.hankaku2,.out{
-    color:red;
+  .caution,.cau,.userlen,.hankaku1,.hankaku2,.out{
+    /* color:red; */
     font-size: 14px;
     margin-top: 20px;
     margin-left: 15px;
+  }
+
+  .caution{
+    background-color: #5f5f5f;
+    height: 150px;
+    width: 100%;
+  }
+
+  .caus{
+    color:#fff;
+    font-weight: bold;
+    line-height: 2;
+  }
+
+  .caus:first-child{
+    display: inline-block;
+    margin-top: 15px;
   }
 
 
@@ -243,9 +263,14 @@ input[type="submit"]{
 
 .dec {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .delete{
   text-align: left;
+}
+
+.hissu{
+  font-size: 13px;
+  color:red;
 }

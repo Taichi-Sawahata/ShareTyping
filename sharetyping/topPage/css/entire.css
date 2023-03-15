@@ -7,13 +7,10 @@
     flex-shrink: 0;
     width: 100%;
     margin: 0 auto;
-    background-color: #2ad947;
-background-image: radial-gradient(#444cf7 0.5px, #2ad947 0.5px);
+     background-color: #eeeeee; 
 background-size: 10px 10px;
-    border-bottom:5px solid #2a6f41;
-    border-left:5px solid #2a6f41;
-    border-right:5px solid #2a6f41;
-    border-radius: 5px;
+    border-radius: 3px;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.2);
 }
 
 h4{
@@ -26,11 +23,15 @@ h4{
 }
 
 .left a {
-    color: #212529;
-    text-decoration: underline;
+    color: rgb(37, 37, 37);
+    text-decoration: none;
     display: block;
     margin-bottom: 5px;
     
+}
+
+.left a:hover{
+    text-decoration: underline;
 }
 
 .left a:hover{
@@ -79,23 +80,39 @@ header img{
 .create a{
     color:#fff;
     font-weight: bold;
+    text-decoration: none;
+
 }
 
-.login1 a{
-    color:#303030;
-    font-weight: bold;
+ .login1 a{
+    color:#fff;
+        font-weight: bold;
+        text-decoration: none;
+
+} 
+
+
+.login1 a:hover,.create a:hover{
+    text-decoration: underline;
+  }
+  
+
+.login1:hover,.create:hover{
+    opacity: .9;
+
 }
 
 .create{
     border: 1px solid transparent;
     border-radius: 5px;
-    background-color: #ffaf26;
+    background-color: hsl(220, 84%, 66%);
 }
 
 .login1{
     border: 1px solid transparent;
     border-radius: 5px;
-    background-color: #ccc;
+    background-color: hsl(220, 84%, 66%);
+   
 }
 
 .btn{

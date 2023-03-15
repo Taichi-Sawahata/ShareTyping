@@ -28,10 +28,23 @@ if(!empty($_SESSION['user_id'])){
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../../topPage/css/Top.css">
     <link rel="stylesheet" href="../../topPage/css/entire.css">
+    <style>
+        body{
+            background: rgb(220, 219, 219);
+            z-index: 1;
+        }
+    </style>
 </head>
-
 <body>
-
+<?php if(!empty($_SESSION['user_name'])){
+echo '<header>';
+  require('../../hamburger/logHamburger.php'); 
+echo '</header>';
+}else{
+    echo '<header>';
+    require('../../hamburger/keyboardHam.php');
+    echo '</header>';
+} ?>
 
 <div class="container">
 <div class="strap">
@@ -59,11 +72,6 @@ if(!empty($_SESSION['user_id'])){
 </div>
        </div>
        <div class="low">
-       <?php if(!empty($_SESSION['user_name'])){
-    require('../../topPage/php/logTop.php');
-}else{
-    require('../../topPage/php/notLogTop.php');
-} ?>
 </div>
 
     <form action="" method="post" id="thr">

@@ -26,3 +26,4 @@ buttonEye2.addEventListener('click',()=>{
     buttonEye2.classList.add('fa-eye-slash');
   }
 })
+

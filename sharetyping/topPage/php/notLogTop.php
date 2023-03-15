@@ -57,34 +57,7 @@ array_push($datepost,$row[$i]['datepost']);
 <header><?php  require('../../hamburger/notLogHamburger.php') ?></header>
 
         <div class="wrapper">
-        <h3><span class="sankaku"></span>
-          楽しくタイピングができる「シェアタイピング」</h3>
-                <div class="back">
-                  <div class="image">
-                    <div class="kakomi">
-                    <div class="mainText">
-                        <h4>クイズ形式で練習できる</h4>
-                        <h1>タイピングゲーム</h1>
-                        <p>自分が勉強したいテーマを作成でき、問題形式のタイピングで遊べる</p>
-                    </div>
-                        <div class="mainBtn">
-                    <div class="btn login">
-                        <a href="../../userInformation/php/quizCreate.php">
-                        ゲームを作成</a></div>
-                    <p class="text">※レッスンPC専用です。</p>
-                    
-                    </div></div>
-                  <div class="inner">
-                  <h4>ShareTypingの道を進もう<br>
-                    タイピング0から最短距離を歩んで
-                      マスターしよう
-                  </h4>
-                  <img src="../../img/key.png" alt="" id="key">
-                  </div>
-                  <h3 class="secondh3"><span class="sankaku"></span>シェアタイピング一覧</h3>
-                  
-                          </div>
-                          </div>
+       
 </div>
 
 <div class="card-list" id="card-list">

@@ -343,13 +343,12 @@ body{
   } 
 
   header{
-    width: 95%;
+    width: 100%;
       position:fixed;
     left: 0;
     top: 0;
     z-index:10;
-    margin-left:30px;
-    background-color: #0bef7c;
+    /* background-color: #0bef7c; */
     } 
 
   #header p {
@@ -416,7 +415,7 @@ body{
   border: 1px solid #ccc;
   border-radius:5px;
   border-color: transparent;
-  background-color: #3e8ed0;
+    background-color: hsl(220, 84%, 66%);;
   width: 10rem;
   line-height: 35px;
   height: 35px;
@@ -524,11 +523,18 @@ text-shadow: 1px 1px 0 #666,2px 2px 0 #666,3px 3px 0 #666;
    .create a{
     color:#fff;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .login1 a{
     color:#303030;
     font-weight: bold;
+    text-decoration: none;
+}
+
+
+.login1 a:hover,.create a:hover{
+  text-decoration: underline;
 }
 
 .create{
