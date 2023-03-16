@@ -89,7 +89,7 @@ body{
   opacity: .9;
 }
 
-,#initialize:active{
+#initialize:active{
   opacity: .8;
 }
 

@@ -2,6 +2,6 @@
 //レッスン一覧ボタンはどこでもつけるから、ファイルにする
 //summary.php Notsummary.php二つに分ける
 let summary = document.getElementById('summary');
-summary.addEventListener('click',()=>{
-  window.location.href="../sharetyping/topPage/php/summary.php";
+summary.addEventListener('click', () => {
+  window.location.href = "../sharetyping/topPage/php/summary.php";
 })

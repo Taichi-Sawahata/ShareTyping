@@ -1,20 +1,21 @@
-<?php 
- 
- session_start();
+<?php
 
-        try{
-            $db =new PDO('mysql:host=localhost;dbname=wp459266_infomation;charset=utf8','wp459266_wp1','gumi7070');
-            $stmt = $db->prepare('SELECT * FROM quiz WHERE title = :title');
-            $stmt->bindValue(':title',$_SESSION['title'],PDO::PARAM_STR);
-            $stmt->execute();
-           $row = $stmt->fetch();
-        } catch(PDOException $e){
-               $e->getMessage();
-           }
-    
-    ?> 
- <!DOCTYPE html>
+session_start();
+
+try {
+    $db = new PDO('mysql:host=localhost;dbname=wp459266_infomation;charset=utf8', 'wp459266_wp1', 'gumi7070');
+    $stmt = $db->prepare('SELECT * FROM quiz WHERE title = :title');
+    $stmt->bindValue(':title', $_SESSION['title'], PDO::PARAM_STR);
+    $stmt->execute();
+    $row = $stmt->fetch();
+} catch (PDOException $e) {
+    $e->getMessage();
+}
+
+?>
+<!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,43 +24,47 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../../topPage/css/Top.css">
     <link rel="stylesheet" href="../../topPage/css/entire.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
     <style>
-        body{
+        body {
             background: rgb(220, 219, 219);
             z-index: 1;
         }
     </style>
 </head>
+
 <body>
-<?php if(!empty($_SESSION['user_name'])){
-echo '<header>';
-  require('../../hamburger/logHamburger.php'); 
-echo '</header>';
-}else{
-    echo '<header>';
-    require('../../hamburger/keyboardHam.php');
-    echo '</header>';
-} ?>
+    <?php if (!empty($_SESSION['user_name'])) {
+        echo '<header>';
+        require('../../hamburger/logHamburger.php');
+        echo '</header>';
+    } else {
+        echo '<header>';
+        require('../../hamburger/keyboardHam.php');
+        echo '</header>';
+    } ?>
 
-<div class="container">
-     <h2><span class="naiyou"><?Php echo $row['title']?></span></h2> 
-     <p>作成ユーザー:<span class="naiyou"><?php echo $row['user_name']?></span></p> 
-     <p><span class="naiyou"><?php echo $row['content'] ?></span></p>
-     <div class="start">
-         <p>Game Start!</p>
-             <p>スペースキーを押してください</p>
-     </div>
- 
-
-</div>
+    <div class="container">
+        <h2><span class="naiyou"><?Php echo $row['title'] ?></span></h2>
+        <p>作成ユーザー:<span class="naiyou"><?php echo $row['user_name'] ?></span></p>
+        <p><span class="naiyou"><?php echo $row['content'] ?></span></p>
+        <div class="start">
+            <p>Game Start!</p>
+            <p>スペースキーを押してください</p>
+        </div>
 
 
-  
-<script src="../js/close.js"></script>
-<script src="../js/space.js"></script>
-<script src="../../topPage/js/play.js"></script>
-<script src="../../topPage/js/login.js"></script>
+    </div>
+
+
+
+    <script src="../js/close.js"></script>
+    <script src="../js/space.js"></script>
+    <script src="../../topPage/js/play.js"></script>
+    <script src="../../topPage/js/login.js"></script>
 
 </body>
-</html> 
+
+</html>

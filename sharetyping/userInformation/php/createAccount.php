@@ -8,7 +8,6 @@ header("X-FRAME-OPTIONS: SAMEORIGIN");
 
 //成功・エラーメッセージの初期化
 $errors = array();
-// $mail = isset($_POST['mail']) ? $_POST['mail'] :NULL;
 
 
 //DB接続
@@ -20,6 +19,7 @@ if(empty($_GET)){
     header("Location: registration_mail");
     exit();
 }else{
+    
     //GETデータを変数に入れる
     $urltoken = isset($_GET['urltoken']) ? $_GET["urltoken"] : NULL;
     //メール入力判定
@@ -67,14 +67,12 @@ try{
     $stmt->execute();
 
  if($rows = $stmt->fetchAll()){
+    $user_name = htmlspecialchars($_POST['user_name'], ENT_QUOTES, "UTF-8");
+    $user_pw = htmlspecialchars($_POST['user_pw'], ENT_QUOTES, "UTF-8");
+    $check = htmlspecialchars($_POST['check'], ENT_QUOTES, "UTF-8");
+
   foreach($rows as $row) {
 
-    if($row['user_name'] === $_POST['user_name']){
-        $user_name = $_POST["user_name"];
-        // $user_mail = $_POST["user_mail"];
-        $pw = $_POST["user_pw"];
-        $check = $_POST["check"];
-    }
 
     if($row['user_name'] === $_POST['user_name']){
         $user_error = '<span class="out"><br>※ユーザー名は既に使用されています</span>';
@@ -104,13 +102,13 @@ try{
 
 
  if(empty($user_error)){
-    $pw_hash = password_hash($_POST["user_pw"], PASSWORD_DEFAULT);
+    $pw_hash = password_hash($user_pw, PASSWORD_DEFAULT);
      $db->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
      $stmt = $db->prepare("INSERT INTO user 
      (user_name,user_mail,user_pw)
       VALUES(:user_name,:user_mail,:user_pw)");
    
- $stmt->bindValue(':user_name',$_POST["user_name"],PDO::PARAM_STR);
+ $stmt->bindValue(':user_name',$user_name,PDO::PARAM_STR);
  $stmt->bindValue(':user_mail',$_SESSION['mail'],PDO::PARAM_STR);
  $stmt->bindValue(':user_pw',$pw_hash,PDO::PARAM_STR);
  $stmt->execute();
@@ -118,13 +116,17 @@ try{
  /*
 		 登録ユーザと管理者へ仮登録されたメール送信
        */
+      $urltoken = hash('sha256',uniqid(rand(),1));
+      //ここどうするか後で検討する
+$url = "https://amateur-step.com/sharetyping/userInformation/php/login.php?urltoken=".$urltoken;
 
-       $mailTo = $mail;
+       $mailTo = $_SESSION['mail'];
        $body = <<< EOM
        この度はご登録いただきありがとうございます。
 	   本登録を完了致しました。
 
        引き続きシェアタイピングをお楽しみください!
+       {$url}
 EOM;
        mb_language('ja');
        mb_internal_encoding('UTF-8');
@@ -133,7 +135,7 @@ EOM;
        //Fromヘッダーを作成
        $header = 'From: ' . mb_encode_mimeheader('シェアタイピング'). ' <' . $companymail. '>';
    
-       if(mb_send_mail($mailTo, $subject, $body, $header, '-f'. $companymail)){          
+       if(mb_send_mail($mailTo, $subject, $body, $header)){          
            $message['success'] = "会員登録しました";
        }else{
            $errors['mail_error'] = "メールの送信に失敗しました。";
@@ -168,61 +170,87 @@ $_SESSION['csrf_token'] = $csrf_token;
 ?>
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>アカウント作成</title>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="../../topPage/css/entire.css">
-   <link rel="stylesheet" href="../../topPage/css/Top.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../topPage/css/entire.css">
+    <link rel="stylesheet" href="../../topPage/css/Top.css">
     <link rel="stylesheet" href="../css/form.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <style>
+    body {
+        background: rgb(220, 219, 219);
+        z-index: 1;
+        overflow: hidden;
+    }
 
-body{
- background: rgb(220, 219, 219);
- z-index: 1;
- overflow:hidden;
-}
+    .containers {
+        margin: 60px auto 0;
+        width: 40%;
+        border: 1px solid transparent;
+        padding-bottom: 20px;
+        background: #fff;
+        z-index: 10;
+        border-radius: 5px;
+    }
 
-.containers{
-    margin:100px auto 0;
-    width: 40%;
-    border:1px solid transparent;
-    padding-bottom: 20px;
-    background: #fff;
-    z-index: 10;
-    border-radius:5px;
-}
+    .user {
+        color: #363636;
+        margin-left: 0;
+    }
 
+    .comfirming{
+        margin-right: 0;
+
+    }
     </style>
 </head>
+
 <body>
-<header><?php  require('../../hamburger/notLogHamburger.php') ?></header>
+    <header><?php  require('../../hamburger/notLogHamburger.php') ?></header>
     <div class="wrapper">
-     
+
         <div class="containers">
             <h3 class="lesson"><span class="sankaku"></span>アカウント作成</h3>
             <p class="attention">※ゲームを作成するには、ユーザー登録が必須必要になります。</p>
             <div class="container">
                 <form action="" method="post" id="submit">
-                  <input type="hidden" name="csrf_token" value="<?php  echo $csrf_token?>">
-                        <div><div class="start"><span class="hissu">※</span><span class="font2 user">ユーザー名</span><?php if(isset($user_error)){echo $user_error;}; ?></div>
-                        <div><input type="text" name="user_name" id="user_name" autocomplete="off" value="<?php if(isset($user_name)){echo $user_name;};?>"></div></div>
-                    <div><div class="start"><span class="hissu">※</span><span class="font2 texlen">パスワード</span></div>
-                    <div class="eye"><input type="password" name="user_pw" id="pass1" class="pw1" autocomplete="off" value="<?php if(isset($pw)){echo $pw;};?>"><span id="buttonEye1" class="fa fa-eye-slash"></span></div></div>
-                    <div><div class="start"><span class="hissu">※</span><span class="font2 comfirming">パスワード確認用</span></div>
-                    <div class="eye"><input type="password" name="check" id="pass2" class="pw2" autocomplete="off" value="<?php if(isset($check)){echo $check;};?>"><span id="buttonEye2" class="fa fa-eye-slash"></span></div></div>
+                    <input type="hidden" name="csrf_token" value="<?php  echo $csrf_token?>">
+                    <div>
+                        <div class="start"><span class="hissu">※</span><span
+                                class="font2 user">ユーザー名</span><?php if(isset($user_error)){echo $user_error;}; ?></div>
+                        <div><input type="text" name="user_name" id="user_name" autocomplete="off"
+                                value="<?php if(isset($user_name)){echo $user_name;};?>" required></div>
+                    </div>
+                    <div>
+                        <div class="start"><span class="hissu">※</span><span class="font2 texlen">パスワード</span></div>
+                        <div class="eye"><input type="password" name="user_pw" id="pass1" class="pw1" autocomplete="off"
+                                value="<?php if(isset($pw)){echo $pw;};?>" required><span id="buttonEye1"
+                                class="fa fa-eye-slash"></span></div>
+                    </div>
+                    <div>
+                        <div class="start"><span class="hissu">※</span><span class="font2 comfirming">パスワード確認用</span>
+                        </div>
+                        <div class="eye"><input type="password" name="check" id="pass2" class="pw2" autocomplete="off"
+                                value="<?php if(isset($check)){echo $check;};?>" required><span id="buttonEye2"
+                                class="fa fa-eye-slash"></span></div>
+                    </div>
                     <input type="submit" value="登録">
                 </form>
             </div>
         </div>
     </div>
-  <script src="../js/notSummary.js"></script>
-  <script src="../js/userValidation.js"></script>
-  <script src="../js/eye.js"></script>
+    <script src="../js/notSummary.js"></script>
+    <script src="../js/userValidation.js"></script>
+    <script src="../js/eye.js"></script>
 
 </body>
+
 </html>

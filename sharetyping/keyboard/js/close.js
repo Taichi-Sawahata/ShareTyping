@@ -2,6 +2,6 @@
 
 let close = document.getElementById('close');
 
-close.addEventListener('click',()=>{
- window.location.href ='../../topPage/php/logTop.php';
+close.addEventListener('click', () => {
+    window.location.href = '../../topPage/php/logTop.php';
 })

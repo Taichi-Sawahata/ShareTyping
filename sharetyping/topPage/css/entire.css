@@ -1,23 +1,23 @@
 /* 全ページに影響がある、headerに影響があるcss */
 
-.header{
+.header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     flex-shrink: 0;
     width: 100%;
     margin: 0 auto;
-     background-color: #eeeeee; 
-background-size: 10px 10px;
+    background-color: #eeeeee;
+    background-size: 10px 10px;
     border-radius: 3px;
-    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-h4{
+h4 {
     font-weight: bold;
 }
 
-.left{
+.left {
     display: flex;
     align-items: flex-end;
 }
@@ -27,43 +27,43 @@ h4{
     text-decoration: none;
     display: block;
     margin-bottom: 5px;
-    
+
 }
 
-.left a:hover{
+.left a:hover {
     text-decoration: underline;
 }
 
-.left a:hover{
+.left a:hover {
     opacity: .8;
 }
 
-.left a:first-child{
+.left a:first-child {
     padding-left: 30px;
 }
 
-.right{
+.right {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-shrink: 0;
 }
 
-.create{
- margin-right: 25px;
+.create {
+    margin-right: 25px;
 }
 
 
-.login1{
+.login1 {
     margin-right: 30px;
 }
 
 
-header img{
+header img {
     display: block;
     margin-top: 5px;
-    width:300px;
-     height:85px; 
+    width: 300px;
+    height: 85px;
     box-sizing: border-box;
     object-fit: cover;
     mix-blend-mode: multiply;
@@ -72,53 +72,50 @@ header img{
 
 
 
-#key{
+#key {
     object-fit: cover;
     width: 400px;
     height: 300px;
 }
-.create a{
-    color:#fff;
+
+.create a {
+    color: #fff;
     font-weight: bold;
     text-decoration: none;
 
 }
 
- .login1 a{
-    color:#fff;
-        font-weight: bold;
-        text-decoration: none;
+.login1 a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
 
-} 
+}
 
 
-.login1 a:hover,.create a:hover{
+.login1 a:hover, .create a:hover {
     text-decoration: underline;
-  }
-  
+}
 
-.login1:hover,.create:hover{
+
+.login1:hover, .create:hover {
     opacity: .9;
 
 }
 
-.create{
+.create {
     border: 1px solid transparent;
     border-radius: 5px;
     background-color: hsl(220, 84%, 66%);
 }
 
-.login1{
+.login1 {
     border: 1px solid transparent;
     border-radius: 5px;
     background-color: hsl(220, 84%, 66%);
-   
+
 }
 
-.btn{
-    padding:6px 12px;
+.btn {
+    padding: 6px 12px;
 }
-
- 
-
-

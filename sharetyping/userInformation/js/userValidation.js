@@ -17,63 +17,64 @@ const user = document.querySelector('.user');
 // const submitBtn = document.getElementById('subBtn');
 
 
-    sub.addEventListener('submit',(event)=>{
-        if(user_name.value.length > 0 && email.value.match(pattern) && pass1.value.length >= 8 && pass1.value === pass2.value 
-         && pass1.value.match(/^[A-Za-z0-9]*$/) && pass2.value.match(/^[A-Za-z0-9]*$/)){
-            sub.submit();
-         }else{
-                 swal('正しい形式で入力してください');
-                 event.stopPropagation();
-                event.preventDefault();
-             }})
+sub.addEventListener('submit', (event) => {
+    if (user_name.value.length > 0 && email.value.match(pattern) && pass1.value.length >= 8 && pass1.value === pass2.value
+        && pass1.value.match(/^[A-Za-z0-9]*$/) && pass2.value.match(/^[A-Za-z0-9]*$/)) {
+        sub.submit();
+    } else {
+        swal('正しい形式で入力してください');
+        event.stopPropagation();
+        event.preventDefault();
+    }
+})
 
 
-        
 
 
- user_name.addEventListener('change',()=>{
- 
+
+user_name.addEventListener('change', () => {
 
 
-     if(user_name.value.length === 0){
+
+    if (user_name.value.length === 0) {
         let userlen = document.getElementsByClassName('userlen')[0];
 
-        if(userlen){
+        if (userlen) {
             userlen.innerHTML = "";
         }
-    
-         user.insertAdjacentHTML('afterend','<span class="userlen">※ユーザネームを確認してください</span>');
-         user_name.style.border = '1px solid red'; 
-     }   
 
-     if(user_name.value.length > 0){
-     let userlen = document.getElementsByClassName('userlen')[0];
-     userlen.innerHTML = "";
-     user_name.style.border = '1px solid #dbdbdb';
-     }
+        user.insertAdjacentHTML('afterend', '<span class="userlen">※ユーザネームを確認してください</span>');
+        user_name.style.border = '1px solid red';
+    }
 
-
-
- })
+    if (user_name.value.length > 0) {
+        let userlen = document.getElementsByClassName('userlen')[0];
+        userlen.innerHTML = "";
+        user_name.style.border = '1px solid #dbdbdb';
+    }
 
 
 
+})
 
 
-email.addEventListener('change',(event)=>{
+
+
+
+email.addEventListener('change', (event) => {
     let caution = document.getElementsByClassName('caution')[0];
 
-    if(caution){
+    if (caution) {
         caution.innerHTML = "";
     }
 
-    if (!email.value.match(pattern)){
-        mail.insertAdjacentHTML('afterend','<span class="caution">※メールアドレスを確認してください</span>');
-        email.style.border = '1px solid red';  
-                }
-               
+    if (!email.value.match(pattern)) {
+        mail.insertAdjacentHTML('afterend', '<span class="caution">※メールアドレスを確認してください</span>');
+        email.style.border = '1px solid red';
+    }
 
-    if(email.value.match(pattern)) {
+
+    if (email.value.match(pattern)) {
         let caution = document.getElementsByClassName('caution')[0];
         caution.innerHTML = "";
         email.style.border = '1px solid #dbdbdb';
@@ -81,74 +82,74 @@ email.addEventListener('change',(event)=>{
 })
 
 
-pass1.addEventListener('change',()=>{
-    if(pass1.value.length < 8){
+pass1.addEventListener('change', () => {
+    if (pass1.value.length < 8) {
         let textlen = document.getElementsByClassName('textlen')[0];
 
-        if(textlen){
+        if (textlen) {
             textlen.innerHTML = "";
         }
-    
-        textLen.insertAdjacentHTML('afterend','<span class="textlen">※パスワードは8文字以上で入力してください</span>')
-        pass1.style.border = '1px solid red';  
+
+        textLen.insertAdjacentHTML('afterend', '<span class="textlen">※パスワードは8文字以上で入力してください</span>')
+        pass1.style.border = '1px solid red';
     }
 
-    if(pass1.value.length >= 8){
+    if (pass1.value.length >= 8) {
         let textlen = document.getElementsByClassName('textlen')[0];
         textlen.innerHTML = "";
         pass1.style.border = '1px solid #dbdbdb';
     }
 
-    if(!pass1.value.match(/^[A-Za-z0-9]*$/)){
-        textLen.insertAdjacentHTML('afterend','<span class="hankaku1">※パスワードは半角で入力してください</span>');
-        pass1.style.border = '1px solid red';  
+    if (!pass1.value.match(/^[A-Za-z0-9]*$/)) {
+        textLen.insertAdjacentHTML('afterend', '<span class="hankaku1">※パスワードは半角で入力してください</span>');
+        pass1.style.border = '1px solid red';
     }
 })
 
 
-pass2.addEventListener('change',()=>{
-    if(pass1.value !== pass2.value){
-    let cau = document.getElementsByClassName('cau')[0];
+pass2.addEventListener('change', () => {
+    if (pass1.value !== pass2.value) {
+        let cau = document.getElementsByClassName('cau')[0];
 
-    if(cau){
-        cau.innerHTML = "";
+        if (cau) {
+            cau.innerHTML = "";
+        }
+
+        comfirming.insertAdjacentHTML('afterend', '<span class="cau">※パスワードが一致していません</span>')
+        pass2.style.border = '1px solid red';
     }
 
-        comfirming.insertAdjacentHTML('afterend','<span class="cau">※パスワードが一致していません</span>')
-        pass2.style.border = '1px solid red';  
-    }
-
-    if(pass1.value === pass2.value){
+    if (pass1.value === pass2.value) {
         let cau = document.getElementsByClassName('cau')[0];
         cau.innerHTML = "";
-        pass2.style.border = '1px solid #dbdbdb';  
+        pass2.style.border = '1px solid #dbdbdb';
     }
-    if(!pass2.value.match(/^[A-Za-z0-9]*$/)){
-        comfirming.insertAdjacentHTML('afterend','<span class="hankaku2">※パスワードは半角で入力してください</span>');
-        pass2.style.border = '1px solid red';  
+    if (!pass2.value.match(/^[A-Za-z0-9]*$/)) {
+        comfirming.insertAdjacentHTML('afterend', '<span class="hankaku2">※パスワードは半角で入力してください</span>');
+        pass2.style.border = '1px solid red';
     }
 })
 
 
 
-    pass1.addEventListener('change',()=>{
-        if(pass2.value.length >= 1){
-        if(pass1.value !== pass2.value){
+pass1.addEventListener('change', () => {
+    if (pass2.value.length >= 1) {
+        if (pass1.value !== pass2.value) {
             let cau = document.getElementsByClassName('cau')[0];
 
-            if(cau){
+            if (cau) {
                 cau.innerHTML = "";
             }
-        
-            comfirming.insertAdjacentHTML('afterend','<span class="cau">※パスワードが一致しません</span>');
-            pass2.style.border = '1px solid red';  
+
+            comfirming.insertAdjacentHTML('afterend', '<span class="cau">※パスワードが一致しません</span>');
+            pass2.style.border = '1px solid red';
         }
-    
-        if(pass1.value === pass2.value){
+
+        if (pass1.value === pass2.value) {
             let cau = document.getElementsByClassName('cau')[0];
             cau.innerHTML = "";
-            pass2.style.border = '1px solid #dbdbdb';  
+            pass2.style.border = '1px solid #dbdbdb';
         }
     }
-    });
+});
 

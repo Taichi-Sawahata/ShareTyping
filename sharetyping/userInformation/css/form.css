@@ -1,90 +1,88 @@
-入力フォームcss
-
-input[type="text"],input[type="num"] {
+入力フォームcss input[type="text"], input[type="num"] {
   font-size: 18px;
 }
 
-#input,textarea{
+#input, textarea {
   font-size: 18px;
 }
 
 
 input[type="password"] {
-    width: 480px;
-    height:40px;
-    border:none;
-    border: 1px solid #dbdbdb;
-    border-color: #dbdbdb; 
-    border-radius: 5px;
+  width: 480px;
+  height: 40px;
+  border: none;
+  border: 1px solid #dbdbdb;
+  border-color: #dbdbdb;
+  border-radius: 5px;
 }
 
-input[type="password"]:focus{
-    outline: 0;
-    border-color: #4dc9ff;
+input[type="password"]:focus {
+  outline: 0;
+  border-color: #4dc9ff;
 }
 
-  .eye{
-    position: relative;
-    display: inline-block;
-  }
+.eye {
+  position: relative;
+  display: inline-block;
+}
 
 
-#buttonEye1,#buttonEye2{
-  position:absolute;
-  width:13px;
+#buttonEye1, #buttonEye2 {
+  position: absolute;
+  width: 13px;
   height: 13px;
-  right:10px;
+  right: 10px;
   top: 13px;
   cursor: pointer;
-  color:rgb(153,153,153);
+  color: rgb(153, 153, 153);
 }
 
 
 
 
-.lesson{
-  color:#fff;
-  font-weight:bold;
+.lesson {
+  color: #fff;
+  font-weight: bold;
   /* background-image: radial-gradient(#444cf7 0.5px, #e8986c 0.5px); */
   background-color: hsl(220, 84%, 66%);
   /* border: 1px dotted #be8331; */
-background-size: 10px 10px;
-width: 480px;
-/* border:1px solid transparent; */
-border-radius:5px;
-margin: 50px auto 40px;
-position: relative;
-/* border-bottom:none; */
+  background-size: 10px 10px;
+  width: 480px;
+  /* border:1px solid transparent; */
+  border-radius: 5px;
+  margin: 50px auto 40px;
+  position: relative;
+  /* border-bottom:none; */
 }
 
-.attention{
+.attention {
   margin-bottom: 30px;
 }
 
-.sankaku{
-  content: ''; 
-  position:absolute;
-  display:inline-block;
+.sankaku {
+  content: '';
+  position: absolute;
+  display: inline-block;
   border-style: solid;
   border-width: 10px 0 10px 12px;
   border-color: transparent transparent transparent #333;
-   position: absolute; 
+  position: absolute;
   top: 20%;
   left: 26px;
- 
+
 }
 
-.container{
-  font-size:20px;
+.container {
+  font-size: 20px;
 }
 
 /* ページデザインcss */
-*{
+* {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   color: #363636;
 }
 
-.btn{
+.btn {
   color: #fff;
   border-radius: 5px;
   font-size: .8rem;
@@ -92,21 +90,21 @@ position: relative;
 }
 
 .wrapper {
-text-align: center;
-padding-top: 70px;
+  text-align: center;
+  padding-top: 70px;
 }
 
 input[type="text"] {
   width: 480px;
-  height:40px;
-  border:none;
+  height: 40px;
+  border: none;
   border: 1px solid #dbdbdb;
   border-radius: 5px;
   /* margin-bottom: 10px; */
   font-size: 18px;
 }
 
-input[type="text"]:focus{
+input[type="text"]:focus {
   outline: 0;
   border-color: #4dc9ff;
 }
@@ -115,56 +113,57 @@ input[type="text"]:focus{
 
 input[type="password"] {
   width: 480px;
-  height:40px;
-  border:none;
+  height: 40px;
+  border: none;
   border: 1px solid #dbdbdb;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
 
-input[type="password"]:focus{
+input[type="password"]:focus {
   outline: 0;
   border-color: #4dc9ff;
 }
 
 
 
-#textarea:focus{
-  outline: 0;
-  border-color: #4dc9ff;
-}
-#num:focus{
+#textarea:focus {
   outline: 0;
   border-color: #4dc9ff;
 }
 
+#num:focus {
+  outline: 0;
+  border-color: #4dc9ff;
+}
 
 
-.container{
+
+.container {
   width: 480px;
   margin: 0 auto;
 }
 
-.start{
+.start {
   text-align: left;
   margin-top: 30px;
   margin-bottom: 10px;
 }
 
-.font2{
+.font2 {
   font-weight: 700;
- padding-right: 50px;
-padding-left: 10px;
-margin-right: 290px;
-font-size:16px;
+  padding-right: 50px;
+  padding-left: 10px;
+  margin-right: 290px;
+  font-size: 16px;
 }
 
-input[type="submit"],#mailSub{
-margin-top: 40px;
+input[type="submit"], #mailSub {
+  margin-top: 40px;
   background-color: hsl(220, 84%, 66%);
-    border-color: transparent;
+  border-color: transparent;
   color: #fff;
-  padding:7px 15px;
+  padding: 7px 15px;
   font-size: 1rem;
   font-weight: 700;
   border-radius: 5px;
@@ -172,13 +171,13 @@ margin-top: 40px;
 }
 
 
-#mailSub{
+#mailSub {
   width: 75px;
-  padding:9px 8px;
+  padding: 9px 8px;
   margin: 40px auto 0;
 }
 
-input[type="submit"]:hover,#mailSub:hover{
+input[type="submit"]:hover, #mailSub:hover {
   text-decoration: underline;
   opacity: .9;
   cursor: pointer;
@@ -191,72 +190,72 @@ input[type="submit"]:hover,#mailSub:hover{
   padding: 6px 12px;
 }
 
-.attention{
+.attention {
   font-size: 0.9rem;
   margin: 20px auto 0;
 }
 
-.create a{
-  color:#fff;
+.create a {
+  color: #fff;
   font-weight: bold;
   display: block;
 }
 
-.btn a{
+.btn a {
   display: block;
 }
 
-.create{
+.create {
   border: 1px solid transparent;
   border-radius: 5px;
 }
 
 
-.sankaku{
-  position:absolute;
-  display:inline-block;
+.sankaku {
+  position: absolute;
+  display: inline-block;
   border-style: solid;
   border-width: 10px 0 10px 12px;
   border-color: transparent transparent transparent #333;
   top: 40%;
   left: 15%;
   margin-top: -6px;
-  }
-
-  .caution,.cau,.userlen,.hankaku1,.hankaku2,.out{
-    /* color:red; */
-    font-size: 14px;
-    margin-top: 20px;
-    margin-left: 15px;
-  }
-
-  .caution{
-    background-color: #5f5f5f;
-    height: 150px;
-    width: 100%;
-  }
-
-  .caus{
-    color:#fff;
-    font-weight: bold;
-    line-height: 2;
-  }
-
-  .caus:first-child{
-    display: inline-block;
-    margin-top: 15px;
-  }
-
-
-  .question,.answer{
-    font-weight: normal;
-  }
-
-  input:-webkit-autofill {
-    transition: background-color 5000s ease-in-out 0s !important;
 }
 
-#decrease,#allDecrease{
+.caution, .cau, .userlen, .hankaku1, .hankaku2, .out {
+  /* color:red; */
+  font-size: 14px;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+.caution {
+  background-color: #5f5f5f;
+  height: 150px;
+  width: 100%;
+}
+
+.caus {
+  color: #fff;
+  font-weight: bold;
+  line-height: 2;
+}
+
+.caus:first-child {
+  display: inline-block;
+  margin-top: 15px;
+}
+
+
+.question, .answer {
+  font-weight: normal;
+}
+
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+#decrease, #allDecrease {
   cursor: pointer;
   text-decoration: underline;
 }
@@ -266,11 +265,11 @@ input[type="submit"]:hover,#mailSub:hover{
   justify-content: center;
 }
 
-.delete{
+.delete {
   text-align: left;
 }
 
-.hissu{
+.hissu {
   font-size: 13px;
-  color:red;
+  color: red;
 }
